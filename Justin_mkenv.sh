@@ -9,8 +9,8 @@ sudo source /etc/profile.d/apps-bin-path.sh
 sudo systemctl start snapd.service snapd.socket
 
 # Install MS Editor
-echo "========Installing MS Editor...========"
-sudo snap install msedit -y
+echo "========Installing MS Editor and Localsend...========"
+sudo snap install msedit localsend -y
 
 # Install Development Tools
 echo "========Installing Development Tools:========"
