@@ -15,7 +15,7 @@ rm ./google-chrome-stable_current_amd64.deb
 
 # Install MS Editor
 echo "========Installing MS Editor and Localsend...========"
-sudo snap install msedit localsend -y
+sudo snap install msedit localsend
 
 # Install Development Tools
 echo "========Installing Development Tools:========"
@@ -24,7 +24,7 @@ echo "========Installing Git...========"
 sudo apt install git -y
 
 echo "========Installing aws cli...========"
-sudo snap install aws-cli --classic -y
+sudo snap install aws-cli --classic
 
 echo "========Installing Docker...========"
 sudo apt-get remove docker docker-engine docker.io containerd runc
@@ -41,7 +41,7 @@ echo "========Installing Kiro...========"
 curl -fsSL https://cli.kiro.dev/install | bash
 
 echo "========Installing Android Studio...========"
-sudo snap install android-studio --classic -y
+sudo snap install android-studio --classic
 
 echo "========Installing terraform...========"
 sudo apt-get update && sudo apt-get install -y gnupg software-properties-common
@@ -59,7 +59,7 @@ sudo apt install postgresql redis-server mongodb mysql-server mysql-client -y
 # Install programming languages
 echo "========Installing programming languages:========"
 echo "========Installing Golang...========"
-sudo snap install go --classic -y
+sudo snap install go --classic
 
 echo "========Installing nodejs...========"
 sudo apt install nodejs -y
