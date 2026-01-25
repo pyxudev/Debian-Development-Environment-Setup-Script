@@ -3,7 +3,7 @@ sudo apt upgrade
 
 # Install environment essentials
 echo "========Installing environment essentials:========"
-sudo apt install snapd curl unzip xz-utils zip libglu1-mesa -y
+sudo apt install snapd curl wget gnupg unzip xz-utils zip libglu1-mesa -y
 sudo systemctl enable snapd.service snapd.socket
 . /etc/profile.d/apps-bin-path.sh
 sudo systemctl start snapd.service snapd.socket
@@ -53,11 +53,22 @@ sudo apt update
 sudo apt-get install terraform -y
 
 # Install Databases
-echo "========Installing Databases...========"
-sudo apt install postgresql redis-server mongodb mysql-server mysql-client -y
+echo "========Installing Databases:========"
+
+echo "========Installing Postgresql and Redis Server...========"
+sudo apt install postgresql redis-server -y
+
+echo "========Installing Mongodb...========"
+curl -fsSL https://www.mongodb.org/static/pgp/server-7.0.asc | \
+   sudo gpg -o /usr/share/keyrings/mongodb-server-7.0.gpg \
+   --dearmor
+echo "deb [ signed-by=/usr/share/keyrings/mongodb-server-7.0.gpg ] https://repo.mongodb.org/apt/debian bookworm/mongodb-org/7.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
 
 # Install programming languages
 echo "========Installing programming languages:========"
+
 echo "========Installing Golang...========"
 sudo snap install go --classic
 
@@ -71,6 +82,7 @@ sudo apt install python3 python3-pip python3-venv -y
 echo "========Installing npm/pnpm...========"
 sudo apt install npm -y
 sudo npm install pnpm -g
+
 echo "========Installing typescript nodejs astro vite vitepress vuejs electron vercel gemini...========"
 pnpm install -g typescript astro nodejs vite vitepress vue electron vercel @google/gemini-cli
 
@@ -80,12 +92,13 @@ pip install virtualenv pandas numpy matplotlib flask requests
 
 # Applying operstions
 echo "========Applying operations:========"
-export PATH="$HOME/.local/bin:$PATH"
+
+echo "========Approve pnpm builds...========"
+pnpm approve-builds -g
+
 echo "========No sudo run Docker...========"
 sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-echo "========Approve pnpm builds...========"
-pnpm approve-builds -g
 export PATH="$HOME/.local/bin:$PATH"
