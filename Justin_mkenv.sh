@@ -80,6 +80,7 @@ pip install virtualenv pandas numpy matplotlib flask requests
 
 # Applying operstions
 echo "========Applying operations:========"
+export PATH="$HOME/.local/bin:$PATH"
 echo "========No sudo run Docker...========"
 sudo groupadd docker
 sudo usermod -aG docker $USER
@@ -87,3 +88,4 @@ newgrp docker
 
 echo "========Approve pnpm builds...========"
 pnpm approve-builds -g
+export PATH="$HOME/.local/bin:$PATH"
