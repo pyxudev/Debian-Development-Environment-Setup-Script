@@ -13,6 +13,9 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo apt install -y ./google-chrome-stable_current_amd64.deb
 rm ./google-chrome-stable_current_amd64.deb 
 
+echo "========Installing Japanese Inputs:========"
+sudo apt install -y ibus-mozc
+
 # Install MS Editor
 echo "========Installing MS Editor and Localsend...========"
 sudo snap install msedit localsend
