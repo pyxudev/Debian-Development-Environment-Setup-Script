@@ -33,10 +33,6 @@ curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o 
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin -y
-echo "========No sudo run Docker...========"
-sudo groupadd docker
-sudo usermod -aG docker $USER
-newgrp docker
 
 echo "========Installing Ollama...========"
 curl -fsSL https://ollama.com/install.sh | sh
@@ -57,7 +53,7 @@ sudo apt update
 sudo apt-get install terraform -y
 
 # Install Databases
-echo "========Installing Databases:========"
+echo "========Installing Databases...========"
 sudo apt install postgresql redis-server mongodb mysql-server mysql-client -y
 
 # Install programming languages
@@ -78,8 +74,16 @@ sudo npm install pnpm -g
 echo "========Installing typescript nodejs astro vite vitepress vuejs electron vercel gemini...========"
 pnpm install -g typescript astro nodejs vite vitepress vue electron vercel @google/gemini-cli
 
-pnpm approve-builds -g
-
 # Install pip packages
-echo "========Installing pip packages:========"
+echo "========Installing pip packages...========"
 pip install virtualenv pandas numpy matplotlib flask requests
+
+# Applying operstions
+echo "========Applying operations:========"
+echo "========No sudo run Docker...========"
+sudo groupadd docker
+sudo usermod -aG docker $USER
+newgrp docker
+
+echo "========Approve pnpm builds...========"
+pnpm approve-builds -g
