@@ -124,3 +124,5 @@ else
 fi
 
 export PATH="$HOME/.local/bin:$PATH"
+
+echo -e "Next steps:\nManully install VSCode, Kiro, Mysql and reboot."
