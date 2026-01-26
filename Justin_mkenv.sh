@@ -17,8 +17,8 @@ echo "========Installing Japanese Inputs:========"
 sudo apt install -y ibus-mozc
 
 # Install MS Editor
-echo "========Installing MS Editor and Localsend...========"
-sudo snap install msedit localsend
+echo "========Installing snap store packages...========"
+sudo snap install msedit localsend yazi ghostty --classic
 
 # Install Development Tools
 echo "========Installing Development Tools:========"
@@ -88,6 +88,8 @@ sudo apt install python3 python3-pip python3-venv -y
 echo "========Installing npm/pnpm...========"
 sudo apt install npm -y
 sudo npm install pnpm -g
+sudo pnpm setup
+source ~/.bashrc
 
 echo "========Installing typescript nodejs astro vite vitepress vuejs electron vercel gemini...========"
 pnpm install -g typescript astro nodejs vite vitepress vue electron vercel @google/gemini-cli
