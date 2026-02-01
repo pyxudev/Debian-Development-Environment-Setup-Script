@@ -123,8 +123,10 @@ echo "========Installing npm/pnpm...========"
 sudo apt install npm -y
 sudo npm install pnpm -g
 npm fund
-sudo pnpm setup || true
-source ~/.bashrc
+pnpm setup
+source /home/$USER/.bashrc
+pnpm install -g typescript astro nodejs vite vitepress vue electron vercel @google/gemini-cli
+pnpm approve-builds -g
 
 # Applying operstions
 echo "========Applying operations:========"
@@ -143,4 +145,4 @@ fi
 
 export PATH="$HOME/.local/bin:$PATH"
 
-echo -e "Next steps:\nManully install VSCode, Kiro, Mysql then reboot.\nTo install pnpm packages, run:\npnpm install -g typescript astro nodejs vite vitepress vue electron vercel @google/gemini-cli"
+read -p "Next steps: Manully install VSCode, Kiro, Mysql then reboot."
