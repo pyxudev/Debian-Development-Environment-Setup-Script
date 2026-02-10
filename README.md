@@ -55,20 +55,20 @@ Ubuntu/Debian系ディストリビューション向けの開発環境を一括�
 ### リモートから直接実行
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/pyxudev/Install-Debian-dev-env-with-one-script/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/pyxudev/Debian-Development-Environment-Setup-Script/main/install.sh | bash
 ```
 
 または
 
 ```bash
-wget -qO- https://raw.githubusercontent.com/pyxudev/Install-Debian-dev-env-with-one-script/main/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/pyxudev/Debian-Development-Environment-Setup-Script/main/install.sh | bash
 ```
 
 ### ダウンロードしてから実行
 
 ```bash
 # スクリプトをダウンロード
-wget https://raw.githubusercontent.com/pyxudev/Install-Debian-dev-env-with-one-script/main/install.sh
+wget https://raw.githubusercontent.com/pyxudev/Debian-Development-Environment-Setup-Script/main/install.sh
 
 # 実行権限を付与
 chmod +x install.sh
