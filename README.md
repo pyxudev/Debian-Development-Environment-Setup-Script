@@ -7,6 +7,10 @@
 - 手動設定ミスを防止
 - 冪等性を意識した安全な実装
 - ログ出力対応（トラブルシュートしやすい）
+- リモート実行可能！
+```
+curl -s https://github.com/pyxudev/Install-Debian-dev-env-with-one-script/blob/main/install.sh | bash
+```
 
 ---
 
